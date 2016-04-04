@@ -5,6 +5,18 @@ import config from './webpack.main'
 config.devtool = 'source-map'
 config.debug = 'true'
 
+config.module.loaders = [
+  {
+    test: /\.css$/,
+    loaders: [
+      'style',
+      'css?sourceMap&modules',
+      'autoprefixer'
+    ]
+  },
+  ...config.module.loaders
+]
+
 config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),

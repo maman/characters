@@ -11,7 +11,7 @@ const CardList = ({characters, loader}) => (
     infiniteLoadBeginEdgeOffset={80}
     useWindowAsScrollContainer>
     {characters.map((character, idx) => {
-      return <Card key={idx} character={character} onClick={() => browserHistory.push(`/characters/${idx}`)} />
+      return <Card key={idx} character={character} onClick={() => browserHistory.push(`/character/${character.id}`)} />
     })}
   </Infinite>
 )

@@ -1,23 +1,18 @@
 import React, { PropTypes } from 'react'
-import Card from './Card'
+import Thing from './Thing'
 
-const Thing = ({ character }) => (
+const Profile = ({ character, additional }) => (
   <div className='profile'>
     <h1>{character.name}</h1>
-    <table>
-      {
-        let { birth_year, gender, height, mass } = character
-      }
-      <tr>
-        <td></td>
-      </tr>
-    </table>
+    {additional.map((data, idx) => {
+      return (<Thing key={idx} data={data} />)
+    })}
   </div>
 )
 
-Thing.propTypes = {
-  name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+Profile.propTypes = {
+  character: PropTypes.object.isRequired,
+  additional: PropTypes.array.isRequired
 }
 
-export default Thing
+export default Profile

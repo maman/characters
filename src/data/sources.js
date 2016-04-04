@@ -1,5 +1,5 @@
 import http from 'axios'
-import { CHARACTERS as charactersEndpoint } from 'config'
+const api = 'http://swapi.co/api'
 
 export default {
   /**
@@ -9,7 +9,7 @@ export default {
    * @return     {Promise}
    */
   list: (page = 1) => {
-    return http.get(`${charactersEndpoint}/?page=${page}`)
+    return http.get(`${api}/people/?page=${page}`)
   },
 
   /**
@@ -20,6 +20,17 @@ export default {
    * @return     {Promise}
    */
   get: (id) => {
-    return http.get(`${charactersEndpoint}/${id}`)
+    return http.get(`${api}/people/${id}`)
+  },
+
+  /**
+   * Load additional data
+   *
+   * @method     loadAdditional
+   * @param      {String}  url     URL to load data from
+   * @return     {Promise}
+   */
+  loadAdditional: (url) => {
+    return http.get(url)
   }
 }

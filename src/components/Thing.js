@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react'
 
-const Thing = ({ name, text }) => (
-  <div className={name}>
-    <span>{text}</span>
+const Thing = ({ data }) => (
+  <div className={data.section}>
+    <span>{data.section}</span>
+    {(() => {
+      if (data.data) {
+        return (<span>{data.data.name || data.data.title}</span>)
+      }
+    })()}
   </div>
 )
 
 Thing.propTypes = {
-  name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  data: PropTypes.object.isRequired
 }
 
 export default Thing

@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.9.1",
     "babel-polyfill": "^6.7.4",
+    "lodash.groupby": "^4.3.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-infinite": "^0.8.0",
@@ -26,6 +27,7 @@
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel": "^6.5.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.6.0",
@@ -37,6 +39,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.15.0",
     "standard-loader": "^3.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }

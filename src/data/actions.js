@@ -8,6 +8,12 @@ export const CHARACTER_GET_REQUEST = 'CHARACTER_GET_REQUEST'
 export const CHARACTER_GET_SUCCESS = 'CHARACTER_GET_SUCCESS'
 export const CHARACTER_GET_FAILURE = 'CHARACTER_GET_FAILURE'
 
+export const LOAD_ADDITIONAL_REQUEST = 'LOAD_ADDITIONAL_REQUEST'
+export const LOAD_ADDITIONAL_SUCCESS = 'LOAD_ADDITIONAL_SUCCESS'
+export const LOAD_ADDITIONAL_FAILURE = 'LOAD_ADDITIONAL_FAILURE'
+
+export const CHARACTER_CLEAR = 'CHARACTER_CLEAR'
+
 /**
  * List available characters
  */
@@ -50,32 +56,82 @@ export function listFailed (error) {
 export function get (id) {
   return (dispatch) => {
     dispatch(getLoading())
-    sources.get(id)
-    .then(({ data }) => {
-      dispatch(getLoaded(data))
-    })
-    .catch((error) => {
-      dispatch(getFailed(error))
+    return sources.get(id)
+  }
+}
+
+export function getFromCache (data) {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      resolve(dispatch(getLoaded(data)))
     })
   }
 }
 
 export function getLoading () {
   return {
-    type: CHARACTER_LIST_REQUEST
+    type: CHARACTER_GET_REQUEST
   }
 }
 
 export function getLoaded (data) {
   return {
-    type: CHARACTER_LIST_SUCCESS,
+    type: CHARACTER_GET_SUCCESS,
     data
   }
 }
 
 export function getFailed (error) {
   return {
-    type: CHARACTER_LIST_FAILURE,
+    type: CHARACTER_GET_FAILURE,
     error
+  }
+}
+
+/**
+ * Get additional Details
+ */
+export function getAdditional (url, additional, idx) {
+  return (dispatch) => {
+    dispatch(additionalLoading(idx, additional))
+    sources.loadAdditional(url)
+    .then(({ data }) => {
+      dispatch(additionalLoaded(data, additional, idx))
+    })
+    .catch((error) => {
+      dispatch(additionalFailed(error, additional, idx))
+    })
+  }
+}
+
+export function additionalLoading (id, section) {
+  return {
+    type: LOAD_ADDITIONAL_REQUEST,
+    id,
+    section
+  }
+}
+
+export function additionalLoaded (data, section, id) {
+  return {
+    type: LOAD_ADDITIONAL_SUCCESS,
+    data,
+    section,
+    id
+  }
+}
+
+export function additionalFailed (error, section, id) {
+  return {
+    type: LOAD_ADDITIONAL_FAILURE,
+    error,
+    section,
+    id
+  }
+}
+
+export function clearDetail () {
+  return {
+    type: CHARACTER_CLEAR
   }
 }

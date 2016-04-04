@@ -1,13 +1,13 @@
 import path from 'path'
 import webpack from 'webpack'
-// import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import config from './webpack.main'
 
 config.devtool = 'source-map'
 config.debug = false
 
 config.plugins = [
-  // new ExtractTextPlugin('starwars.[hash].css'),
+  new ExtractTextPlugin('starwars.[hash].css'),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.AggressiveMergingPlugin(),
