@@ -1,6 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import HtmlPlugin from 'html-webpack-plugin'
+
 const src = path.join(__dirname, './src')
 
 let config = {
@@ -20,10 +21,11 @@ let config = {
     loaders: [{
       test: /\js$/,
       exclude: /node_modules/,
-      loaders: ['babel']
+      loader: 'babel'
     }]
   },
   plugins: [
+    new webpack.IgnorePlugin(/ReactContext/),
     new HtmlPlugin({
       inject: true,
       title: 'Star Wars!'

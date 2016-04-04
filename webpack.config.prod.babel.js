@@ -6,6 +6,14 @@ import config from './webpack.main'
 config.devtool = 'source-map'
 config.debug = false
 
+config.module.loaders = [
+  {
+    test: /\.css$/,
+    loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&localIdentName=[hash:base64:5]')
+  },
+  ...config.module.loaders
+]
+
 config.plugins = [
   new ExtractTextPlugin('starwars.[hash].css'),
   new webpack.optimize.DedupePlugin(),

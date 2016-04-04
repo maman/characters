@@ -1,0 +1,12 @@
+.card {
+  background: linear-gradient(to bottom, white, #DDD);
+  height: 80px;
+  cursor: pointer;
+  padding: 1rem;
+  box-shadow: 0 0 1px 0 #333;
+  text-shadow: 0 1px 0 #FFF;
+}
+
+.cardWrapper {
+
+}

@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
+import styles from './Card.css'
 
 const Card = ({ character, onClick }) => (
-  <div className='card' onClick={onClick} style={{height: '80px'}}>
-    <h2 style={{marginTop: 0}}>{character.name}</h2>
-    <span className='birthYear'>{character.birth_year}</span>
+  <div className={styles.card} onClick={onClick}>
+    <div className={styles.cardWrapper}>
+      <h2 style={{marginTop: 0}}>{character.name}</h2>
+      <span className='birthYear'>Date of Birth: {character.birth_year}</span>
+    </div>
   </div>
 )
 

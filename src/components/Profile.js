@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react'
 import Thing from './Thing'
 
+import styles from './Profile.css'
+
 const Profile = ({ character, additional }) => (
-  <div className='profile'>
-    <h1>{character.name}</h1>
-    {additional.map((data, idx) => {
-      return (<Thing key={idx} data={data} />)
-    })}
+  <div className={styles.main}>
+    <h1 className={styles.resetH1}>{character.name}</h1>
+    <div className={styles.thingHolder}>
+      {additional.map((data, idx) => {
+        return (<Thing key={idx} data={data} />)
+      })}
+    </div>
   </div>
 )
 

@@ -1,0 +1,23 @@
+.thingy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% / 3);
+  text-align: center;
+  box-shadow: 0 0 0 1px #2a2a2a;
+}
+
+.thingy span {
+  display: block;
+}
+
+.sectionTitle {
+  color: #2A2A2A;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+.mainText {
+  font-size: 1.4em;
+}

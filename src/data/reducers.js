@@ -67,29 +67,39 @@ export default function detail (state = initialDetailState, action) {
   }
 }
 
-export function loading (state, action) {
+export function position (state = 0, action) {
+  switch (action.type) {
+    case characterActions.SAVE_SCROLL_POSITION:
+      return action.position
+    default:
+      return state
+  }
+}
+
+export function loading (state = false, action) {
   switch (action.type) {
     case characterActions.CHARACTER_LIST_REQUEST:
     case characterActions.CHARACTER_GET_REQUEST:
       return true
     default:
-      return false
+      return state
   }
 }
 
-export function failed (state, action) {
+export function failed (state = false, action) {
   switch (action.type) {
     case characterActions.CHARACTER_LIST_FAILURE:
     case characterActions.CHARACTER_GET_FAILURE:
       return true
     default:
-      return false
+      return state
   }
 }
 
 export default combineReducers({
   characters,
   detail,
+  position,
   loading,
   failed
 })

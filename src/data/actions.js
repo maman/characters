@@ -13,6 +13,7 @@ export const LOAD_ADDITIONAL_SUCCESS = 'LOAD_ADDITIONAL_SUCCESS'
 export const LOAD_ADDITIONAL_FAILURE = 'LOAD_ADDITIONAL_FAILURE'
 
 export const CHARACTER_CLEAR = 'CHARACTER_CLEAR'
+export const SAVE_SCROLL_POSITION = 'SAVE_SCROLL_POSITION'
 
 /**
  * List available characters
@@ -133,5 +134,12 @@ export function additionalFailed (error, section, id) {
 export function clearDetail () {
   return {
     type: CHARACTER_CLEAR
+  }
+}
+
+export function savePosition (position) {
+  return {
+    type: SAVE_SCROLL_POSITION,
+    position
   }
 }

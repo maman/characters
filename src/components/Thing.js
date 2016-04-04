@@ -1,15 +1,25 @@
 import React, { PropTypes } from 'react'
+import classnames from 'classnames'
 
-const Thing = ({ data }) => (
-  <div className={data.section}>
-    <span>{data.section}</span>
-    {(() => {
-      if (data.data) {
-        return (<span>{data.data.name || data.data.title}</span>)
-      }
-    })()}
-  </div>
-)
+import styles from './Thing.css'
+
+const Thing = ({ data }) => {
+  function thingClass () {
+    let classes = {}
+    classes[data.section] = true
+    classes[styles.thingy] = true
+    return classes
+  }
+  return (
+    <div className={classnames(thingClass())}>
+      <span className={styles.sectionTitle}>{data.section}</span>
+      {(() => {
+        if (data.data) {
+          return (<span className={styles.mainText}>{data.data.name || data.data.title}</span>)
+        }
+      })()}
+    </div>
+  ) }
 
 Thing.propTypes = {
   data: PropTypes.object.isRequired
