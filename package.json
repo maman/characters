@@ -4,7 +4,6 @@
   "description": "hi, hello from the other side",
   "main": "index.js",
   "scripts": {
-
     "start": "webpack-dev-server",
     "build": "webpack --config webpack.config.prod.babel.js -p",
     "test": "karma -c karma.conf.js"
