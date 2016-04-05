@@ -1,6 +1,7 @@
 # Star Wars Characters
 
 Displays all star wars characters & details using [SWAPI](http://swapi.co/).
+see it live [here](http://characters.pandu.ml)
 
 # Running
 
