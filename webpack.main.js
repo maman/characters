@@ -31,7 +31,7 @@ let config = {
       title: 'Star Wars!'
     }),
     new webpack.DefinePlugin({
-      DEBUG: JSON.stringify(process.env.NODE_ENV) !== 'production'
+      'process.env.NODE_ENV': `"${process.env.NODE_ENV || 'development'}"`,
     })
   ],
   output: {

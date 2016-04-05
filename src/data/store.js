@@ -1,14 +1,20 @@
-/*global DEBUG */
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import createLogger from 'redux-logger'
 import rootReducer from './reducers'
+
+const middlewares = [thunkMiddleware]
+
+if (process.env.NODE_ENV === 'development') {
+  const createLogger = require('redux-logger')
+  const logger = createLogger()
+  middlewares.push(logger)
+}
 
 export default function Flux (initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunkMiddleware, (DEBUG ? createLogger() : () => {}))
+    applyMiddleware(...middlewares)
   )
 
   if (module.hot) {
