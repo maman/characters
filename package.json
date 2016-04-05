@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "prebuild": "rimraf dist",
     "build": "webpack --config webpack.config.prod.babel.js -p",
+    "postbuild": "node bin/copyutil.js",
     "test": "karma -c karma.conf.js"
   },
   "keywords": [
@@ -40,6 +42,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.15.0",
+    "rimraf": "^2.5.2",
     "standard-loader": "^3.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",

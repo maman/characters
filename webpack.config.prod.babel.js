@@ -9,7 +9,7 @@ config.debug = false
 config.module.loaders = [
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&localIdentName=[hash:base64:5]')
+    loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&localIdentName=[hash:base64:5]!autoprefixer')
   },
   ...config.module.loaders
 ]

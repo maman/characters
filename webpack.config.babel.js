@@ -10,7 +10,8 @@ config.module.loaders = [
     test: /\.css$/,
     loaders: [
       'style',
-      'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:3]'
+      'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:3]',
+      'autoprefixer'
     ]
   },
   ...config.module.loaders
