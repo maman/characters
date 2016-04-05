@@ -1,6 +1,6 @@
 # Star Wars Characters
 
-This app displays all star wars characters & details using [SWAPI](http://swapi.co/).
+Displays all star wars characters & details using [SWAPI](http://swapi.co/).
 
 # Running
 
@@ -10,6 +10,9 @@ This app displays all star wars characters & details using [SWAPI](http://swapi.
 
 # NPM Tasks
 
-1. `npm start`: Starts the development server, it'll be up on http://localhost:8080
-2. `npm run build`: Build the application, the results will be placed on `dist` directory
-3. `npm test`: Run the unittests
+1. `npm start` starts the development server, that will be accessible on [http://localhost:8080](http://localhost:8080)
+2. `npm run build` builds and minify the application. the results will be placed on `dist` directory
+
+# Technical Explanation
+
+This application was built with [React](http://facebook.github.io/react/), and uses [Redux](https://github.com/reactjs/redux) for the state management.

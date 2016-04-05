@@ -1,3 +1,4 @@
+/*global DEBUG */
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -7,7 +8,7 @@ export default function Flux (initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunkMiddleware, createLogger())
+    applyMiddleware(thunkMiddleware, (DEBUG ? createLogger() : () => {}))
   )
 
   if (module.hot) {
